@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var renk = true;
+		var i = 0;
+		function paragrafEkle() {
+			var etiket = document.createElement("p");
+			var main = document.getElementById('main');
+			renk = (renk) ? false : true;
+			if(renk)
+				etiket.style.color = "red";
+			else
+				etiket.style.color = "blue";
+			i++;
+			main.apenpdChild(etiket);
+			var text = document.createTextNode("Bilgisayar Mühendisliği Bölümü: " + i);
+			etiket.appendChild(text);
+		}
+		function paragrafSil()
+		{
+			/*var etiket = document.getElementsByTagName('p')[0];
+			var parent = etiket.parentNode;
+			parent.removeChild(etiket);*
+/			document.getElementsByTagName('p')[0].remove();
+		}
+	</script>
+</head>
+<body>
+<div id="main">
+<p>Zonguldak Bülent Ecevit Üniversitesi</p>
+</div>
+<button onclick="paragrafEkle()">Paragraf Ekle</button>
+<button onclick="paragrafSil()">Paragraf Sil</button>
+</body>
+</html>

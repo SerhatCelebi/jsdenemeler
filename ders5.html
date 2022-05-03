@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>	
+	<script type="text/javascript" src="jquery-3.6.0.js"></script>
+	<style type="text/css">
+		#main{
+			width: 300px;
+			text-align: center;
+			background-color: #E1E8EE;
+			border-radius: 20px;			
+		}
+		input[type="text"]{
+			border-radius: 15px;
+			margin: 5px;
+			padding: 7px;
+			width: 50%;
+		}
+		input[type="button"]{
+			background-color: #000;
+			border-radius: 15px;
+			margin: 5px;
+			padding: 7px;
+			width: 50%;
+			box-sizing: content-box;
+		}
+		#sifre{
+			position: absolute;
+			visibility: hidden;
+		}
+		button:hover{
+			background-color: lightcyan;
+			cursor: pointer;
+		}
+	</style>
+	<script type="text/javascript">
+		function sifreGetir() {
+			var sifreDiv = document.getElementById('sifre');
+			var sifreTxt = document.getElementById('idt');
+			sifreDiv.style.left = sifreTxt.offsetLeft + sifreTxt.offsetWidth/2 + "px";
+			sifreDiv.style.top = sifreTxt.offsetTop + sifreTxt.offsetHeight/2 + "px";
+			sifreDiv.style.visibility = "visible";
+		}
+		/*document.addEventListener('click', function(e){
+			var icerik = document.getElementById('sifre');
+			if(!icerik.contains(e.target))
+				{icerik.style.visibility = "hidden";}
+		});*/
+var icerik = document.getElementById('sifre');
+		$(document).ready(function(){
+			$("button").click(function(){
+				var sifreTxt = document.getElementById('idt');
+				if(this.id != "sil" && this.id != "karistir" && this.id != "kapat")
+					sifreTxt.value += this.innerText;
+				else if(this.id == "sil")
+					sifreTxt.value = sifreTxt.value.substring(0,sifreTxt.value.length-1);
+				else if(this.id == "kapat")
+					document.getElementById('sifre').style.visibility = "hidden";
+				else
+				{
+					var dizi = randperm(10);
+					var sayilar = document.getElementById('sifre').getElementsByTagName('button');
+					for(var i = 0; i < 10; i++)
+						sayilar[i].innerText = dizi[i];
+				}
+
+			});
+		});
+
+		function randperm(maxSayi)
+		{
+			var permDizi = new Array(maxSayi);
+			for(var i = 0; i < maxSayi; i++)
+				permDizi[i] = i;
+
+			for(var i = (maxSayi - 1); i >= 0; i--)
+			{
+				var randKonum = Math.floor(i * Math.random());
+				var tmp = permDizi[i];
+				permDizi[i] = permDizi[randKonum];
+				permDizi[randKonum] = tmp;
+			}
+			return permDizi;
+		}
+
+
+	</script>
+
+</head>
+<body>
+<div id="main">
+	<input type="text" name=""><br>
+	<input id="idt" type="text" name="" onfocus="sifreGetir()"><br>
+	<input type="button" style="color:white;" value="Giriş" onclick="sifreGetir()">
+</div>
+<div id="sifre">
+<button>1</button><button>2</button><button>3</button><button>4</button><br>
+<button>5</button><button>6</button><button>7</button><button>8</button><br>
+<button>9</button><button>0</button><button id="sil" style="width: 50%; display: inline-block;">Sil</button><br>
+<button id="karistir" style="width: 100%; display: inline-block;">Karıştır</button><br>
+<button id="kapat" style="width: 100%; display: inline-block;">Kapat</button>
+</div>
+</body>
+</html>

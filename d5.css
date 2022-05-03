@@ -1,0 +1,29 @@
+
+		#main{
+			width: 300px;
+			text-align: center;
+			background-color: #E1E8EE;
+			border-radius: 20px;
+		}
+		input[type="text"],input[type="password"]{
+			border-radius: 15px;
+			margin: 5px;
+			padding: 7px;
+			width: 50%;
+		}
+		input[type="button"]{
+			background-color: #000;
+			border-radius: 15px;
+			margin: 5px;
+			padding: 7px;
+			width: 50%;
+			box-sizing: content-box;
+		}
+		#sifre{
+			position: absolute;
+			visibility: hidden;
+		}
+		button:hover{
+			background-color: lightcyan;
+			cursor: pointer;
+		}

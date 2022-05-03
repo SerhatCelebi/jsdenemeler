@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var sayac = 0;
+		var zamanKriteri = null;
+		var bayrak = true;
+		function say(){
+			if(!bayrak)
+				bayrak = true;
+			else
+				bayrak = false;
+			if(bayrak)
+			{
+				var benimText = document.getElementById("textID");
+				benimText.value = sayac;
+				//document.getElementById("tiklanan").disabled = true;
+				benimText.style.borderColor = "red";
+				sayac++;
+				if(sayac > 20)
+					dur();
+				else
+					zamanKriteri = setTimeout("say()", 100);
+			}
+		}
+
+		function dur()
+		{
+			clearTimeout(zamanKriteri);
+			document.getElementById("tiklanan").disabled = false;
+			sayac = 0;
+
+			document.getElementById("textID").style.borderColor = "green";
+		}
+	</script>
+</head>
+<body>
+<input type="text" name="deger" id="textID">
+<input type="button" value="başla" name="deger" id="tiklanan" onclick="say()">
+</body>
+</html>

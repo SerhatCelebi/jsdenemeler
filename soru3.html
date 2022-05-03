@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<style>
+#randomSayi{
+    border-style: solid;
+    border-color: aqua;
+    position: absolute;
+    padding: 20px;
+    width: 100px;
+    height: 100px;
+    margin: 50px;
+    background-color: rgb(192, 221, 221);
+    
+}
+.mainDiv{
+position: relative;
+height: 700px;
+width: 700px;
+background-color: rgb(170, 127, 70);
+}
+.fixedNesne{
+position:absolute;
+z-index: 9999;
+
+}
+
+
+</style>
+<script>
+function oku(i){
+        var sayi=document.querySelectorAll('#randomSayi');
+        alert(sayi[i].textContent);
+
+    }
+function rastgeleYer(){
+    var a;
+    var sayi=document.querySelectorAll('#randomSayi');
+    for(i=Math.floor((Math.random())*3);i<sayi.length;){
+        for(j=Math.floor((Math.random())*3);j<sayi.length;){
+        a=sayi[j].textContent;
+        sayi[j].textContent=sayi[i].textContent;
+        sayi[i].textContent=a;
+        setTimeout("rastgeleYer()",3000);
+
+    }
+    }
+
+    
+}
+
+
+
+    function randomAta(){
+        var sayi=document.querySelectorAll('#randomSayi');
+        sayi.forEach(function(say){
+        say.innerHTML=Number(say.innerHTML)+Number(' '+Math.floor((Math.random())*10)+' ') ; 
+});
+
+    }
+    function arttir(){
+        var sayi=document.querySelectorAll('#randomSayi');
+        sayi.forEach(function(say){
+        say.innerHTML++ ; 
+});
+    }
+       function yerDegistir(){
+        var sayi=document.querySelectorAll('#randomSayi');
+        sayi.forEach(function(say){
+        say.style.left=(Math.floor(Math.random()*500))+'px';
+        say.style.top=(Math.floor(Math.random()*500))+'px';
+
+});
+
+       }
+    
+</script>
+    </head>
+    <body onload="rastgeleYer()">
+    <div class="mainDiv">
+        <input type="button" value="rastgeleSayi" onclick="randomAta()" class="fixedNesne" style="left: 0px;">
+        <input type="button" value="arttir" onclick="arttir()" class="fixedNesne" style="left: 100px;">  
+        <input type="button" value="yerDegistir" onclick="yerDegistir()" class="fixedNesne" style="left: 200px;"> 
+
+
+        <div id="randomSayi" style="left: 0px;top: 0px;" onclick="oku(0)" class="sayi1">
+        
+        </div>
+        <div id="randomSayi" style="left:200px;top: 0px;" onclick="oku(1)" class="sayi2">
+        
+        </div>
+        <div id="randomSayi" style="left: 0px;top:200px" onclick="oku(2)" class="sayi3">
+        
+        </div>
+        <div id="randomSayi" style="top:200px; left:200px" onclick="oku(3)" class="sayi4">
+        
+        </div>
+    </div>
+
+    </body>
+</html>

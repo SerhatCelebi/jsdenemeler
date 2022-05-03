@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		var sayi = 4, n = 1;
+		function fnc(){
+			$("#r" + sayi).animate({"left":n*400+"px"},"slow");
+			sayi--;
+			if(sayi == 0) {sayi = 4;n++;}
+			setTimeout(fnc, 3000);
+		}
+	</script>
+</head>
+<body onload="fnc();">
+	<button onclick="fnc();">Tıkla</button><br>
+<img id="r1" src="r1.png" style="position: absolute;">
+<img id="r2" src="r2.png" style="position: absolute;">
+<img id="r3" src="r3.png" style="position: absolute;">
+<img id="r4" src="r4.png" style="position: absolute;">
+
+</body>
+</html>

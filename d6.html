@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		a:hover{
+			cursor: pointer;
+			font-size: 1.2em;
+		}
+	</style>
+	<script type="text/javascript" src="jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function resimler(){
+			$("a").click(function(){
+				resimId = this.innerText.charAt(0);
+				document.getElementById('resim').src = "r" + resimId + ".png";
+			//	$("#resim").attr("src","r" + resimId + ".png");
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="main" style="background-color: lightgrey; height: 250px; text-align: center; position: relative;">
+<div id="icerik" style="width:400px; height: 100%; margin-left: auto; margin-right: auto;position: relative; ">
+	<img id="resim" src="r1.png" />
+<div id="sayfalar" style="position: absolute; left: 50%; bottom: 0px; margin-left: auto; margin-right: auto;">
+	<a>1 </a><a>2 </a><a>3 </a><a>4 </a>
+</div>
+</div>
+</div>
+</body>
+</html>

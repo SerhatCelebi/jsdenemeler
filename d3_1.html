@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var sayac = 0;
+		var zamanKriteri;
+		function basla()
+		{
+			var benimText = document.getElementById("textID");
+			benimText.value = sayac;
+			benimText.style.borderColor = "red";
+			sayac++;
+			if(sayac > 20)
+				dur();
+			else
+				zamanKriteri = setTimeout("basla()",200);
+		}
+		var bayrak = true;
+		function dur()
+		{
+			clearTimeout(zamanKriteri);
+			sayac = 0;			
+			document.getElementById("textID").style.borderColor = "green";
+		}
+	</script>
+</head>
+<body>
+<input type="text" name="" id="textID" placeholder="butona bas">
+<input type="button" name="" id="tiklanan" value="Tikla" onclick="basla()">
+</body>
+</html>

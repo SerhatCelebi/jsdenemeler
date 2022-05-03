@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html><head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>
+</title>
+<style>
+    .maindiv{
+        background-color: bisque;
+         height: 400px;
+          width: 100%;
+        position: relative;
+    }
+    .digerdiv{
+        height: 400px;
+        width: 400px;
+        position: absolute;
+        margin:auto 40%;
+        
+
+        
+    }
+
+</style>
+<script>
+function resimeGit(resim){
+var yakala=document.getElementById('resimYeri');
+yakala.setAttribute("src",'r'+resim+'.png');
+ 
+
+}
+</script>
+</head>
+<body>
+    <div class="maindiv">
+        <div class="digerdiv">
+            <img src="r1.png"  id="resimYeri" style="height: 400px;width: 400px;">
+            <label for="butonlar" style="position: absolute; bottom: 0px;left:20%;">
+            <input type="button" value="1.resim" id="butonlar" onclick="resimeGit(1)">
+            <input type="button" value="2.resim" id="butonlar" onclick="resimeGit(2)">
+            <input type="button" value="3.resim" id="butonlar" onclick="resimeGit(3)">
+            <input type="button" value="4.resim" id="butonlar" onclick="resimeGit(4)">
+        </div>
+
+        
+
+    </div>
+</body>
+
+</html>

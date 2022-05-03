@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+	#table {
+		float: left;
+		width: fit-content;
+		border-collapse:collapse ;
+		border-style:solid ;
+		box-shadow:5px 10px ;
+
+	}
+	#boton{
+		width: fit-content;
+		height: 50px;
+		float: left;
+		border-collapse: collapse;
+		border-style: solid;
+		box-shadow:5px 10px ;
+	}
+	.bt{
+		height: 50px;
+		width: 50px;
+		color: white;
+		background: red;
+
+
+	}
+	</style>
+	<script type="text/javascript">
+		function ekle() {
+			var ad=document.getElementById("adi");
+			var soyad=document.getElementById("soyadi");
+			console.log("adi");
+			console.log("soyadi");
+			var s1="<input type='checkbox' name='ch'>";
+			var s2="<input type='text' value="+adi.value+">";
+			var s3="<input type='text' value="+soyadi.value+">";
+			var div=document.getElementById("table");
+			var icerik=true;
+			if(icerik){
+				var html="<div id='ek'><div>"+s1+s2+s3+"</div></div>";
+				div.innerHTML=div.innerHTML+html;
+				icerik=false;
+			}
+			else{
+				document.getElementsByName('ek').innerHTML+="<div>"+s1+s2+s3+"</div>";
+			}
+			
+		}
+		function sil(){
+			console.log("	silme komutu calisti");
+			var ch=document.getElementsByName("ch");
+			for(i=0;i<ch.length;i++){
+				if(ch[i].checked){
+				ch[i].parentNode.remove();
+				}
+			}
+
+		
+		}
+		
+	</script>
+</head>
+<body>
+<div id="main">
+	<div id="table">
+		<table border="1px groove" >
+			<tr>
+				<td bgcolor="red">
+					<label>
+						Adı:
+					</label>
+				</td >
+				<td bgcolor="red">
+					<input type="text" name="Adı" id="adi">
+				</td>
+			</tr>
+			<tr>
+				<td type="text" bgcolor="red">
+					<label>Soyadı</label>
+				</td>
+				<td bgcolor="red">
+					<input type="text" name="Soyadı" id="soyadi" >
+				</td>
+			</tr>
+
+		</table>
+		
+	</div>
+	<div id="boton">
+			<input type="button" class="bt" value="Ekle" onclick="ekle()">
+			<input type="button" class="bt" value="Sil" onclick="sil()">
+			<input type="button" class="bt" value="Ders3" onclick="javascript:location.href='index.html'">
+			<input type="button" class="bt" value="Ders4" onclick="javascript:location.href='index1.html'">
+
+		</div>
+		
+	
+</div>
+</body>
+</html>

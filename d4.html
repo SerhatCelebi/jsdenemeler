@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function degistir() {
+			var paragraflar = document.getElementsByTagName('p');
+			paragraflar[0].style.color = "red";
+			paragraflar[1].style.fontStyle = "italic";
+			for(i = 0; i < paragraflar.length; i++)
+				paragraflar[i].style.backgroundColor = "lightgrey";
+
+			var ps = document.getElementsByClassName("ps");
+			for(i = 0; i < ps.length; i++)
+			{
+				ps[i].style.border = "thick solid #0000FF";
+				if(i == 0)
+					ps[i].innerHTML = "<b>Bilgisayar Mühendisliği</b>";
+				else
+					ps[i].innerHTML=  "<p id='b1'>Bilgisayar Mühendisliği-test</p>";
+			}
+			//alert(document.getElementById("b1").innerText);
+		}
+
+		function kenarUzaklik(arg){
+			arg.style.marginLeft = "50px";
+		}
+		function geriAl(arg){
+			arg.style.marginLeft = "0px";
+		}
+	</script>
+</head>
+<body>
+<p onmouseover="kenarUzaklik(this)" onmouseout="geriAl(this)">Zonguldak Bülent Ecevit Üniversitesi</p>
+<p onmouseover="kenarUzaklik(this)" onmouseout="geriAl(this)">Zonguldak Bülent Ecevit Üniversitesi</p>
+<p onmouseover="kenarUzaklik(this)" onmouseout="geriAl(this)" class="ps">Zonguldak Bülent Ecevit Üniversitesi</p>
+<p onmouseover="kenarUzaklik(this)" onmouseout="geriAl(this)" class="ps">Zonguldak Bülent Ecevit Üniversitesi</p>
+<button onclick="degistir()">Tıkla</button>
+</body>
+</html>

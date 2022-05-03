@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		function kontrol() {
+			var textEtiketleri = document.getElementsByName('txt');
+			for(i = 0; i < textEtiketleri.length; i++)
+				//if(textEtiketleri[i].value == "")
+				if(textEtiketleri[i].value.length < 8)
+					textEtiketleri[i].style.borderColor = "red";
+				else
+					textEtiketleri[i].style.borderColor = "green";
+			var ps1 = document.getElementById('ps1');
+			var ps2 = document.getElementById('ps2');
+			if(ps1.value != ps2.value)
+			{
+				ps2.style.opacity = 0.1;
+				ps2.style.transition = "opacity 3s";
+				setTimeout(function(){ps2.style.opacity = 1;ps2.style.transition = "opacity 3s";}, 3000);
+			}
+		}
+	</script>
+</head>
+<body>
+<table style="border:solid;">
+	<tr><td><label>Adı:</label></td><td><input type="text" name="txt"></td></tr>
+	<tr><td><label>Soyadı:</label></td><td><input type="text" name="txt"></td></tr>
+	<tr><td><label>Şifre 1:</label></td><td><input id="ps1" type="password" name="txt"></td></tr>
+	<tr><td><label>Şifre 2:</label></td><td><input id="ps2" type="password" name="txt"></td></tr>
+</table>
+<input type="button" name="" value="Gönder" onclick="kontrol()">
+</body>
+</html>

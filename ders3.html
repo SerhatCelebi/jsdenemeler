@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script type="text/javascript">
+		var yas = 32;
+		var isim = "Ali";
+		var teyit = true;
+		/*if(teyit)
+			alert(isim + " " + yas + " yaşındadır !");*/
+		function fnc(str, sayi)
+		{
+			var ekle = str + sayi;
+			//alert(ekle);
+			return ekle;
+		}
+		var degisken = fnc("test", 10);
+		//alert(degisken);
+		//var sehirler = ["zonguldak", "bartın", "karabük"];
+		var sehirler = [];
+		sehirler[0] = "zonguldak";
+		sehirler[2] = "karabük";
+		console.log(sehirler.length);
+		const ogrenci = {
+			numarasi: 61,
+			adi: "Ali",
+			soyadi: "Veli",
+			dersGecti: true,
+			isimGetir: function(){
+			document.write(this.adi + "<br>");
+			}
+		};
+		console.log(ogrenci.soyadi);
+		ogrenci.adi = 5;
+		ogrenci.isimGetir();
+		ogrenci.tcno = 10015;
+		document.write(ogrenci.tcno);
+		delete ogrenci.tcno;
+		document.write(ogrenci.tcno);
+		ogrenci.tcno = 10013;
+		document.write(ogrenci.tcno + "<br><br><br>");
+
+		var merhaba = "Merhaba Dünya!";
+		merhaba = merhaba.toUpperCase();
+		document.write(merhaba  + "<br>");
+		document.write(merhaba.charAt(4)  + "<br>");
+		document.write(merhaba.replace("DÜNYA","Arkadaşım")  + "<br>");
+		document.write(merhaba.toLowerCase().bold()  + "<br>");
+		/*var y;
+		var i = 0;
+		var objeler = [];
+		for (i = 0; i < 10; i++)
+		{
+			const c = Object.create(ogrenci);
+			objeler[i] = c;
+			objeler[i].numarasi = i;
+		}
+		for (i = 0; i < 10; i++)
+		{
+			document.write(objeler[i].numarasi + "<br>");
+		}*/
+		/*const a = Object.create(ogrenci);
+		const b = Object.create(ogrenci);
+		a.adi = "Ahmet";
+		b.adi = "Mehmet";
+		a.isimGetir();
+		b.isimGetir();*/
+		/*var dizi = [ogrenci, ogrenci];
+		dizi[1].adi = "Ahmet";
+		document.write(dizi[0].adi + " " + dizi[1].adi);
+		*/
+		//ogrenci.basari();
+		/*if(ogrenci.dersGecti)
+			ogrenci.basari();
+		else
+			document.write("başarısız");*/
+	</script>
+</head>
+<body>
+
+</body>
+</html>
