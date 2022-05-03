@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<style type="text/css">
+		div{
+			width: 280px;
+			padding: 20px;
+			border: 2px solid hotpink;
+			border-radius: 20px;
+			background-color: blanchedalmond;
+		}
+		#soru:hover{
+			cursor: pointer;
+		}
+		button{margin: 5px;}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var say = 0;
+			var txtler = [];
+			$("a:first").on("click", function(){
+				var bilgi = $("#inp").val();
+				var s1 = "<div style='margin-top:5px;padding:10px;width: fit-content; background-color: burlywood;'>";
+				var s2 = "<input type='text' style='width: 220px' value='"+bilgi+"'>";
+				var s3 = "<img id='"+say+"' src='trash_bin_icon-icons.com_67981.ico' class='img1' style='vertical-align:middle; height: 22px;'></div>";
+				txtler[say] = $("#txt").val();
+				say++;
+				$("#main").append(s1 + s2 + s3);
+				$("#inp").val("");
+				$("#txt").val("");
+			});
+			$("#main").on('click', '.img1', function(){
+				$(this).parent().slideUp(300, function(){
+  					$(this).remove();
+  				});
+			});
+			var bilgiNo = -1;
+			$("#main").on('mouseover', '.img1', function(){
+				bilgiNo = $(this).attr('id');
+				$("#soru").parent().css({position: 'relative'});
+				var x = $(this).offset();				
+				$("#soru").css({top: x.top-20, left: x.left+5, position:'absolute',visibility: 'visible'});
+			
+			});
+			var bayrak = true;
+			$("#soru").on("mouseover", function () {	
+				$(".yd").text(txtler[bilgiNo]);
+				var x = $("#soru").offset();
+				$(".yd").css({top: x.top, left: x.left, position:'absolute',visibility: 'visible'});
+			});			
+		});
+
+	</script>
+</head>
+<body>
+<div id="main">
+	<input type="text" id="inp" name="" placeholder="Görev Giriniz..."><a><span style="padding-left: 20px; color: darkred;font-weight: bold;">Ekle</span></a>
+	<textarea id="txt" rows="4" cols="35">
+</textarea>
+</div>
+<img id="soru" src="question_mark_icon_151137.ico" style="height: 22px;visibility: hidden;">
+<div class='yd' style='width:fit-content; height:fit-content; text-align:center;visibility: hidden;'></div>
+</body>
+</html>
